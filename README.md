@@ -1,5 +1,9 @@
 # eloquentJavascript
 
-Nothing very creative to see here
++=={========>
 
-for exorcises in the book Eloquent Javascript
+///Nothing creative to see here///
+
++=={========>
+
+This is for exorcises in the book Eloquent Javascript
