@@ -3,11 +3,12 @@
 function chessBoard(size) {
 
 	var row = " ";
+	console.log("row length: " + row.length);
 	
-	//build initial row
-	for ( i = 0; i < size; i++) { spaceShifter(); };
+	//fill initial row with spaces and # or shift charecters
+	for ( i = 0; row.length < size; i++) { spaceShifter(); };
 	
-	//for shifting spaces in rows
+	//shift adding a space or # in row
 	function spaceShifter() {
 		if (row.charAt(0) === " " ){
 			row = "#" + row;
