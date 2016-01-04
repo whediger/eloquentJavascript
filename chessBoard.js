@@ -19,7 +19,7 @@ function chessBoard(size) {
 	
 	
 	//fill initial row with spaces and # or shift charecters
-	for ( ii = 0; row.length < size ; ii++) {
+	for ( i = 0; i < size ; i++) {
 	
 		spaceShifter();	
 		
