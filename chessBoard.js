@@ -5,33 +5,22 @@ function chessBoard(size) {
 	var row = " ";
 	
 	
-	function spaceShifter() {
-		
-		//shift adding a space or # in row
+	
+	for ( i = 0; i <= (size+1) ; i++) {		
+			
+			//shift adding a space or # in row
 			if (row.charAt(0) === " " ){
 				row = "#" + row;
 			} else {
 				row = " " + row;
 			}
 			
-			row = row.substring(0, size);
-	};			
-	
-	
-	//fill initial row with spaces and # or shift charecters
-	for ( i = 0; i < size ; i++) {
-	
-		spaceShifter();	
-		
-	};
-		
-	//shift rows and send them to terminal output
-	for ( i = 0 ; i < size; i++) {
-		
-		spaceShifter();
-		
-		console.log(row);
-	}
+			//removes extra chars at end of string
+			if (row.length > size ) { row = row.substring(0, size); };
+			//console.logs new lines
+			if (row.length === size) { console.log(row); };
+	};					
+
 	
 };
 
