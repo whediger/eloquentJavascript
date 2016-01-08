@@ -17,7 +17,6 @@ function isEven(number){
 	return result;
 };
 
-//console logs for testing
 console.log("is even(50): " + isEven(50));
 console.log("is even(75): " + isEven(75));
 console.log("is even(-777)" + isEven(-777));
