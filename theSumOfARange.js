@@ -1,11 +1,20 @@
 
-function range( start, end ){
+function range( start, end, step ){
 
+	if ( !step ) { step = 1; }
+	
 	var rangeArray = [];
-		
-	for ( i = start; i <= end; i++ ) {
-		rangeArray.push(i);
+	
+	if ( ( start < end ) && ( step > 0 ) ){	
+		for ( i = start; i <= end; i += step ) {
+			rangeArray.push(i);
+		}
+	} else if ( ( start > end ) && ( step < 0 ) ){
+		for ( ii = start; ii >= end; ii += step ){
+			rangeArray.push(ii);
+		}
 	}
+	
 	return rangeArray;
 }
 
@@ -18,4 +27,5 @@ function sum(numbers) {
 	}
 	return total;
 }
-console.log("sum of range 1-10: " + sum(range(1,10)));
+
+console.log("sum of range 5-2 step= -1: " + sum(range(5,2,-1)));
