@@ -1,3 +1,6 @@
+
+
+
 var list = {
 	value: 1,
 	rest: {
@@ -12,6 +15,7 @@ var list = {
 console.log("from book:");
 console.log(list);
 
+// above from book to compare results +=={=======>
 
 function arrayToList(arrayIn) {
 	
