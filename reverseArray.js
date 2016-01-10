@@ -11,7 +11,7 @@ function reverseArray(arrayIn){
 	return arrayOut;
 }
 
-var testArray = ["1", "2", "3", "4", "5", "6"];
+var testArray = ["1", "2", "3", "4", "5"];
 console.log("result of passing arroy, contents chars 1 though 5 to reverseArray: " + reverseArray(testArray));
 
 //---  +=={========>
