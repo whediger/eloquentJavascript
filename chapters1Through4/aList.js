@@ -39,14 +39,17 @@ console.log(arrayToList([1,2,3]));
 
 //-- listToArray  +=={=======>
 
-listToArray(arrayToList([1,2,3]));	
+console.log("list to array: " + listToArray(arrayToList([1,2,3])));	
 	
 function listToArray(listIn){
 
-	//the point of this exorcise makes no sense to me. Who cares if you can add a value
-	//to a crazy potentially endless element inside of an element inside of an element
-	//list. Its neat in a golden ratio gennerated spiral way. But, what's the point? 
-	//As far as my understanding can lead me, I would rather use a regular list of objects.
-
+	var arrayOut = [];
+	
+	//looked in the back of the book for the solution
+	for (var node = listIn; node; node = node.rest) {
+		arrayOut.push(node.value);
+	}
+	
+	return arrayOut;
 }	
 
