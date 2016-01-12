@@ -53,3 +53,28 @@ function listToArray(listIn){
 	return arrayOut;
 }	
 
+//-- Helper functions  +=={========>
+	
+function prepend(listIn, elementIn)	{
+	
+	var newlist;
+	
+	newList = { value: elementIn, rest: listIn };
+	
+	return newList;
+	
+}
+	 
+//console.log("Append list with 4: ");
+//console.log(prepend(list,4));
+
+function nth(listIn, numIn) {
+	
+		for ( i = 0; i < numIn; i++) {
+			if (listIn.rest == null ) { return "undefined";}
+			listIn = listIn.rest;		
+		}
+		
+		return listIn.value;
+}
+console.log(nth(list,1));
