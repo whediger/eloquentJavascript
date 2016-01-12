@@ -70,11 +70,11 @@ function prepend(listIn, elementIn)	{
 
 function nth(listIn, numIn) {
 	
-		for ( i = 0; i < numIn; i++) {
-			if (listIn.rest == null ) { return "undefined";}
-			listIn = listIn.rest;		
-		}
-		
-		return listIn.value;
+	for ( i = 0; i < numIn; i++) {
+		if (listIn.rest == null ) { return "undefined";}
+		listIn = listIn.rest;		
+	}
+	
+	return listIn.value;
 }
 console.log(nth(list,1));
