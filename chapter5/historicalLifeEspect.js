@@ -21,22 +21,13 @@ function filter(array, test) {
 
 filter(ancestry, function(person){
 	centuries.push(Math.ceil(person.died / 100));
+	centuryTags.push(Math.ceil(person.died / 100));
 	ages.push(person.died - person.born);
 });
-//create a function existTest(array)  that returns if value is stored in array elements
-/***
-for ( i = 0; i < centuries.length; i++ ) {
-	for ( ii = 0; ii <= centuryTags.length; ii++ ) {
-		if (centuryTags[ii] == centuries[i]) {
-			return;
-		} else if ( ii == centuryTags.length ) {
-			centuryTags.push(centuries[i]);
-			console.log(centuries[i]);
-		}
-	}
-}
-****/
-centuries = centuries.sort(function(a, b){ return a - b; });
+
+
+centuryTags = centuryTags.sort(function(a, b){ return a - b; });
+
 
 function centuryReducer(arrayIn) {
 	var next = 0;
@@ -49,9 +40,11 @@ function centuryReducer(arrayIn) {
 	}
 	return arrayIn;
 }
-centuries = centuryReducer(centuries);
+centuryTags = centuryReducer(centuryTags);
+
+
 
 console.log(centuries);
 console.log(centuries.length);
 //console.log(ages);
-//console.log(centuryTags);
+console.log(centuryTags);
