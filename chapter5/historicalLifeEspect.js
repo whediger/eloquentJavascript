@@ -35,7 +35,7 @@ function createAveAge(dataIn){
 	}
 	
 	//creates three arrays; centuries and ages are synchronous: centuryTags creates list of centuries
-	filter(ancestry, function(person){
+	filter(dataIn, function(person){
 		centuries.push(Math.ceil(person.died / 100));
 		centuryTags.push(Math.ceil(person.died / 100));
 		ages.push(person.died - person.born);
