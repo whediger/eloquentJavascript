@@ -15,12 +15,13 @@ function createAveAge(dataIn){
 	//the summary of the centuries people where born 
 	//and the average age they were when they were born
 	var centuryTags = [];
-	var averageAges = [];
+	var ageSum = [];
 	
 	//numOfPeople keeps a tally of the number of people born 
 	//during a certain century
 	var numOfPeople = [];
 	
+	var averageAges = [];
 	
 	function filter(array, test) {
 		
@@ -60,18 +61,39 @@ function createAveAge(dataIn){
 	//this is where the work is done. 
 	//The syncronous centuries and ages arrays are used
 	//to create the averageAges array.
+	var counter = 0;
+	ageSum[counter] = 0;
+	numOfPeople[counter] = 0;
+	
 	for ( i = 0; i < centuryTags.length; i++ ){
 		for ( ii = 0; ii < centuries.length; ii++ ){
-			if ( centuryTags[i] == centuries[ii]) {
-				
+			if (centuryTags[i] == centuries[ii]) {
+				ageSum[counter] = ageSum[counter] + ages[ii];
+				numOfPeople[counter] = numOfPeople[counter] + 1;
 			}
 		}
+		counter = counter + 1;
+		ageSum[counter] = 0;
+		numOfPeople[counter] = 0;
 	}
 	
-	console.log(centuries);
-	console.log(centuries.length);
+	for ( i = 0; i < centuryTags.length; i++ ) {
+		averageAges[i] = Math.round(ageSum[i] / numOfPeople[i]);
+	}
+	
+	//can modify output for proper grammer
+	for ( i = 0; i < averageAges.length; i++ ) {
+		console.log("The average age of people born in the " 
+					+ centuryTags[i] + " century is: " 
+					+ averageAges[i] + " years old.");
+	}
+	
+	//console.log(centuries);
+	//console.log(centuries.length);
 	//console.log(ages);
-	console.log(centuryTags);
+	//console.log(centuryTags.length);
+	//console.log(ageSum);
+	//console.log(numOfPeople);
 
 	
 }
