@@ -3,13 +3,11 @@ function Vector(x,y) {
 	this.y = y;
 	
 	this.plus = function(x, y) {
-		var vector2 = Math.sqrt(((x*x) + (y*y)));
+		x = x + this.x;
+		y = y + this.y;
 		//console.log for test purposes
-		console.log("plus executed. vector2: " + vector2.toFixed(2)); //to 2 decimal places for readablility
-		vector2 = vector2 + this.length;
-		//console.log for test purposes
-		console.log("plus executed. vector sum: " + vector2.toFixed(2)); //to 2 decimal places for readablility
-		return vector2;	
+		console.log("plus executed. new x: " + x + " new y: " + y);
+		
 	};
 	
 	this.minus = function(x, y) {
