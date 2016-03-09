@@ -2,7 +2,7 @@
 
 function rowHeights(rows) {
 	return rows.map(function(row) {
-		return rows.reduce(function(max, cell) {
+		return row.reduce(function(max, cell) {
 			return Math.max(max, cell.minHeight());
 		}, 0);
 	});
@@ -11,7 +11,7 @@ function rowHeights(rows) {
 function colWidths(rows) {
 	return rows[0].map(function(_, i) {
 		return rows.reduce(function(max, row) {
-			return Math.max(max, row[i].minWidth());
+			return Math.max(max, row[i].minWidth);
 		}, 0);
 	});
 }
@@ -19,7 +19,7 @@ function colWidths(rows) {
 function drawTable(rows) {
 	var heights = rowHeights(rows);
 	var widths = colWidths(rows);
-	
+
 	function drawLine(blocks, lineNo) {
 		return blocks.map(function(block){
 			return block[lineNo];
@@ -30,12 +30,13 @@ function drawTable(rows) {
 		var blocks = row.map(function(cell, colNum) {
 			return cell.draw(widths[colNum], heights[rowNum]);
 		});
+		//console.log(blocks);/////////////////////////////----------------
 		return blocks[0].map(function(_, lineNo) {
 			return drawLine(blocks, lineNo);
 		}).join("\n");
 	}
-	
-	return rows.map(drawRow).join("\n");
+	//console.log(rows);
+	return rows.map(drawRow).join("\n"); 
 }
 
 function repeat(string, times) {
@@ -46,13 +47,17 @@ function repeat(string, times) {
 }
 
 function TextCell(text) {
-	this.text = test.split("\n");
+	this.text = text.split("\n");
 }
 
 TextCell.prototype.minWidth = function() {
 	return this.text.reduce(function(width, line){
 		return Math.max(width, line.length);
 	}, 0);
+};
+
+TextCell.prototype.minHeight = function() {
+	return this.text.length;
 };
 
 TextCell.prototype.draw = function(width, height) {
@@ -63,3 +68,21 @@ TextCell.prototype.draw = function(width, height) {
 	}
 	return result;
 };
+
+// +=={=======>
+// test code
+	
+var rows = [];
+for (var i = 0; i < 5; i++) {
+	var row = [];
+	for (var j = 0; j < 5; j++) {
+		if ((j + i) % 2 == 0)
+			row.push(new TextCell('##'));
+		else
+			row.push(new TextCell("  "));
+	}
+	//console.log(row); //row has strings, rows has objects
+	rows.push(row);
+}
+console.log(rows);
+console.log(drawTable(rows));
