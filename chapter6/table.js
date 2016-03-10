@@ -30,12 +30,12 @@ function drawTable(rows) {
 		var blocks = row.map(function(cell, colNum) {
 			return cell.draw(widths[colNum], heights[rowNum]);
 		});
-		//console.log(blocks);/////////////////////////////----------------
+
 		return blocks[0].map(function(_, lineNo) {
 			return drawLine(blocks, lineNo);
 		}).join("\n");
 	}
-	//console.log(rows);
+	
 	return rows.map(drawRow).join("\n"); 
 }
 
@@ -69,6 +69,26 @@ TextCell.prototype.draw = function(width, height) {
 	return result;
 };
 
+
+// +=={=======>
+//mountains data
+
+var MOUNTAINS = [
+  {name: "Kilimanjaro", height: 5895, country: "Tanzania"},
+  {name: "Everest", height: 8848, country: "Nepal"},
+  {name: "Mount Fuji", height: 3776, country: "Japan"},
+  {name: "Mont Blanc", height: 4808, country: "Italy/France"},
+  {name: "Vaalserberg", height: 323, country: "Netherlands"},
+  {name: "Denali", height: 6168, country: "United States"},
+  {name: "Popocatepetl", height: 5465, country: "Mexico"}
+];
+
+if (typeof module != "undefined" && module.exports)
+  module.exports = MOUNTAINS;
+
+
+
+
 // +=={=======>
 // test code
 	
@@ -84,5 +104,5 @@ for (var i = 0; i < 5; i++) {
 	//console.log(row); //row has strings, rows has objects
 	rows.push(row);
 }
-console.log(rows);
+//console.log(rows);
 console.log(drawTable(rows));
