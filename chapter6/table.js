@@ -1,5 +1,24 @@
 ///Most of the following was created by following allong in the Book. Pg 108-116
 
+// +=={=======>
+//mountains data
+
+var MOUNTAINS = [
+  {name: "Kilimanjaro", height: 5895, country: "Tanzania"},
+  {name: "Everest", height: 8848, country: "Nepal"},
+  {name: "Mount Fuji", height: 3776, country: "Japan"},
+  {name: "Mont Blanc", height: 4808, country: "Italy/France"},
+  {name: "Vaalserberg", height: 323, country: "Netherlands"},
+  {name: "Denali", height: 6168, country: "United States"},
+  {name: "Popocatepetl", height: 5465, country: "Mexico"}
+];
+
+if (typeof module != "undefined" && module.exports)
+  module.exports = MOUNTAINS;
+
+// +=={=======>
+//the rest
+
 function rowHeights(rows) {
 	return rows.map(function(row) {
 		return row.reduce(function(max, cell) {
@@ -75,13 +94,13 @@ TextCell.prototype.draw = function(width, height) {
 function UnderlinedCell(inner) {
 	this.inner = inner;
 }
-UnderlinedCell.protoType.minWidth = function() {
+UnderlinedCell.prototype.minWidth = function() {
 	return this.inner.minWidth();
 };
-UnderlinedCell.protoType.minHeight = function() {
+UnderlinedCell.prototype.minHeight = function() {
 	return this.inner.minHeight() + 1;
 };
-UnderlinedCell.protoType.draw = function(width, height) {
+UnderlinedCell.prototype.draw = function(width, height) {
 	return this.inner.draw(width, height -1)
 		.concat([repeat("-", width)]);
 };
@@ -102,21 +121,8 @@ function dataTable(data) {
 	return [headers].concat(body);
 }
 
-// +=={=======>
-//mountains data
+console.log(drawTable(dataTable(MOUNTAINS)));
 
-var MOUNTAINS = [
-  {name: "Kilimanjaro", height: 5895, country: "Tanzania"},
-  {name: "Everest", height: 8848, country: "Nepal"},
-  {name: "Mount Fuji", height: 3776, country: "Japan"},
-  {name: "Mont Blanc", height: 4808, country: "Italy/France"},
-  {name: "Vaalserberg", height: 323, country: "Netherlands"},
-  {name: "Denali", height: 6168, country: "United States"},
-  {name: "Popocatepetl", height: 5465, country: "Mexico"}
-];
-
-if (typeof module != "undefined" && module.exports)
-  module.exports = MOUNTAINS;
 
 
 
