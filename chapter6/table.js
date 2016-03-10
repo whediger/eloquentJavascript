@@ -87,6 +87,22 @@ UnderlinedCell.protoType.draw = function(width, height) {
 };
 
 // +=={=======>
+// grid of cells from data set builder
+
+function dataTable(data) {
+	var keys = Object.keys(data[0]);
+	var headers = keys.map(function(name) {
+		return new UnderlinedCell(new TextCell(name));
+	});
+	var body = data.map(function(row) {
+		return keys.map(function(name) {
+			return new TextCell(String(row[name]));
+		});
+	});
+	return [headers].concat(body);
+}
+
+// +=={=======>
 //mountains data
 
 var MOUNTAINS = [
@@ -104,9 +120,9 @@ if (typeof module != "undefined" && module.exports)
 
 
 
-
+/***********************
 // +=={=======>
-// test code
+// checkerboard test code
 	
 var rows = [];
 for (var i = 0; i < 5; i++) {
@@ -122,3 +138,4 @@ for (var i = 0; i < 5; i++) {
 }
 //console.log(rows);
 console.log(drawTable(rows));
+*************************/
