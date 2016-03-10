@@ -69,6 +69,22 @@ TextCell.prototype.draw = function(width, height) {
 	return result;
 };
 
+// +=={=======>
+//underline top row of column labels
+
+function UnderlinedCell(inner) {
+	this.inner = inner;
+}
+UnderlinedCell.protoType.minWidth = function() {
+	return this.inner.minWidth();
+};
+UnderlinedCell.protoType.minHeight = function() {
+	return this.inner.minHeight() + 1;
+};
+UnderlinedCell.protoType.draw = function(width, height) {
+	return this.inner.draw(width, height -1)
+		.concat([repeat("-", width)]);
+};
 
 // +=={=======>
 //mountains data
