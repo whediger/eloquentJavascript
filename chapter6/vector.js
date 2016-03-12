@@ -23,7 +23,7 @@ function Vector(x,y) {
 }
 
 Object.defineProperty(Vector.prototype, "length", {
-	get: function() { return Math.sqrt(((this.x*this.x) + (this.y*this.y))); }
+	get: function() { return Math.sqrt(((this.x*this.x) + (this.y*this.y)), -2); }
 });
 
 //   +=={=======>   test code follows
