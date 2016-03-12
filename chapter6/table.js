@@ -106,29 +106,6 @@ UnderlinedCell.prototype.draw = function(width, height) {
 };
 
 // +=={=======>
-// grid of cells from data set builder
-
-function dataTable(data) {
-	var keys = Object.keys(data[0]);
-	var headers = keys.map(function(name) {
-		return new UnderlinedCell(new TextCell(name));
-	});
-	var body = data.map(function(row) {
-		return keys.map(function(name) {
-			var value = row[name];
-			if (typeof value == "number")
-				return new RTextCell(String(value));
-			else 
-				return new TextCell(String(value));
-			return new TextCell(String(row[name]));
-		});
-	});
-	return [headers].concat(body);
-}
-
-console.log(drawTable(dataTable(MOUNTAINS)));
-
-// +=={=======>
 //RTextCell aligns number ext tot the right by adding spaces on the left equal to cell size
 
 function RTextCell(text) {
@@ -143,6 +120,29 @@ RTextCell.prototype.draw = function(width, height) {
 	}
 	return result;
 };
+
+// +=={=======>
+// grid of cells from data set builder
+
+function dataTable(data) {
+	var keys = Object.keys(data[0]);
+	var headers = keys.map(function(name) {
+		return new UnderlinedCell(new TextCell(name));
+	});
+	var body = data.map(function(row) {
+		return keys.map(function(name) {
+			var value = row[name];
+			if (typeof value == "number")
+				return new RTextCell(String(value));
+			else 
+				return new TextCell(String(value));
+		});
+	});
+	return [headers].concat(body);
+}
+
+console.log(drawTable(dataTable(MOUNTAINS)));
+
 
 
 /***********************
