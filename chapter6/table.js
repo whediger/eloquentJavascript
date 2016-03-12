@@ -89,6 +89,17 @@ TextCell.prototype.draw = function(width, height) {
 };
 
 // +=={=======>
+//impliment cell type named StretchCell(inner, width, height) 
+//that conforms to the table cell interface. Should wrap another cell (like UnderlinedCell does)
+//ensure the resulting cell has at least the given width and height, even if inner cell
+//would naturally be smaller.
+
+function StretchCell(inner, width, height) {
+	////add code here
+}
+
+
+// +=={=======>
 //underline top row of column labels
 
 function UnderlinedCell(inner) {
